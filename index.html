@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- LOGIN / AUTH SCREEN (Bonus: User Authentication) -->
+    <div id="authScreen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h1 class="logo-large">Amazon <span class="highlight">Explorer</span></h1>
+                <p class="auth-subtitle">Real-time product data at your fingertips</p>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="userNameInput">Your Name</label>
+                        <input type="text" id="userNameInput" placeholder="e.g., Alex" required>
+                        <small>For personalized settings</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apiKeyInput">RapidAPI Key</label>
+                        <input type="text" id="apiKeyInput" placeholder="Enter RapidAPI Key">
+                        <small>Leave empty to use the provided Demo Key</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block">Start Exploring</button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Powered by RapidAPI & Real-Time Amazon Data</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APPLICATION SCREEN -->
+    <div id="appScreen" class="screen">
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo">Amazon Explorer</h1>
+            </div>
+            <div class="header-right">
+                <span id="userGreeting" class="user-greeting">Hello, User</span>
+                <button id="logoutBtn" class="btn-secondary btn-sm">Sign Out</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- Search Controls -->
+            <section class="controls-section">
+                <form id="searchForm" class="search-form">
+                    <div class="search-input-group">
+                        <input type="text" id="queryInput" placeholder="Search Amazon (e.g. iPhone 15, Sneakers)" required>
+                        <button type="submit" class="btn-primary search-btn">
+                            Search
+                        </button>
+                    </div>
+
+                    <div class="filter-controls">
+                        <div class="control-group">
+                            <label for="countrySelect">Country</label>
+                            <select id="countrySelect"></select>
+                        </div>
+                        <div class="control-group">
+                            <label for="sortBy">Sort By</label>
+                            <select id="sortBy"></select>
+                        </div>
+                        <div class="control-group price-group">
+                            <label>Price Range</label>
+                            <div class="price-inputs">
+                                <input type="number" id="minPriceInput" placeholder="Min" min="0">
+                                <input type="number" id="maxPriceInput" placeholder="Max" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <!-- Loading Spinner -->
+                <div id="loadingState" class="state-message" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Fetching fresh data from Amazon...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorState" class="state-message error" style="display: none;">
+                    <h3>Oops!</h3>
+                    <p id="errorMessage">Something went wrong.</p>
+                </div>
+
+                <!-- Results Grid -->
+                <div id="resultsContainer" class="results-container"></div>
+
+                <!-- Empty/Initial State -->
+                <div id="emptyState" class="state-message">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-icon">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <h2>Ready to Search</h2>
+                    <p>Enter a product name above to find real-time deals and reviews.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PRODUCT DETAILS MODAL -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="detailsTitle">Product Details</h2>
+                <button class="close-btn" onclick="closeDetailsModal()">&times;</button>
+            </div>
+            <div id="detailsContent" class="details-body">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
