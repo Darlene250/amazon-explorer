@@ -1,5 +1,5 @@
 # Amazon Explorer
-
+- **Demo link:** <(https://youtu.be/NIxY2xZCnqQ)>
 ## Project Information
 
 - **Developer:** Darlene Ayinkamiye
@@ -61,7 +61,7 @@ A simple, clean web application for searching Amazon products in real-time using
 **1. Clone or Download the Repository**
 
 ```bash
-git clone <your-repo-url>
+git clone <(https://github.com/Darlene250/amazon-explorer.git)>
 cd amazon-explorer
 ```
 
@@ -82,16 +82,11 @@ open index.html
 # On Windows
 start index.html
 
-# Or use VSCode Live Server extension
-```
-
-## Deployment to Web Servers
-
 ### Server Requirements
 
-- **Web01** (IP: your-web01-ip)
-- **Web02** (IP: your-web02-ip)
-- **Lb01** (Load Balancer IP: your-lb-ip)
+- **Web01** (IP: 44.202.91.235)
+- **Web02** (IP: 52.90.75.188)
+- **Lb01** (Load Balancer IP: 3.89.140.126)
 
 ### Deployment Steps
 
@@ -117,7 +112,7 @@ scp index.html style.css script.js config.js ubuntu@<web01-ip>:/var/www/amazon-e
 sudo nano /etc/nginx/sites-available/amazon-explorer
 ```
 
-Add this configuration:
+Added this configuration:
 
 ```nginx
 server {
