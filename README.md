@@ -1,5 +1,5 @@
 # Amazon Explorer
-- **Demo link:** <(https://youtu.be/NIxY2xZCnqQ)>
+- **Demo link:** https://youtu.be/NIxY2xZCnqQ
 ## Project Information
 
 - **Developer:** Darlene Ayinkamiye
